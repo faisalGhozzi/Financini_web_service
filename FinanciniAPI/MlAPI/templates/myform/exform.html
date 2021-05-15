@@ -1,24 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method='post'>
-        {% csrf_token %}
-        {{form|linebreaks}}
-        <button type='submit'>Submit</button>
-    </form>
-    {% if messages %}
-    <ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
-    {{ message }} </li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <div class = "mx-2 my-5">
+        <div  class = "container-fluid">
+            <div class = "row" style = "background-color:#94baf2">
+                <div class = "col-sm-4">
+                    <!--Add Financini img here-->
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col"></div>
+                    <div class ="col-6 my-5">
+                        <h1>Loans Form</h1>
+                        <br>
+                        <form method='post'>
+                        {% csrf_token %}
+                        {{form|linebreaks}}
+                        <button type='submit'>Submit</button>
+                        </form>
+                        {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
+                        {{ message }} </li>
+                        {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+{% endblock %}

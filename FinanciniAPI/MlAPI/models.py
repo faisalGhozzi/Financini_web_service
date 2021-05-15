@@ -11,6 +11,9 @@ class approvals(models.Model):
     actif_immobilier=models.FloatField(default=0)
     resultat_net=models.FloatField(default=0)
     chiffre_d_affaires=models.FloatField(default=0)
+    security_deposit=models.FloatField(default=0)
+    loan_ammount=models.FloatField(default=0)
+
 
     def __str__(self):
         return self.sct
