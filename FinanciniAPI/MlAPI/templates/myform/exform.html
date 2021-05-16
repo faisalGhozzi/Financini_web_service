@@ -5,13 +5,13 @@
     <div class="row">
         <div class ="col"></div>
             <div class ="col-6 my-5">
-                <center><h1>Loans Form</h1></center>
+                <center><h1>Loans Approval</h1></center>
                 <br>
                 <form method='post'>
                 {% csrf_token %}
                 {{form|crispy}}
                 <br>
-                <button type='submit' class='btn btn-primary'>Submit</button>
+                <button type='submit' class='btn btn-primary btn-lg btn-block'>Submit</button>
                 </form>
                 <br>
             </div>

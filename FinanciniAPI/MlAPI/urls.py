@@ -5,7 +5,7 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 router.register('MlAPI', views.ApprovalsView)
 urlpatterns = [
-    path('form/',views.sctcontact, name='sctform'),
+    path('ml-form/',views.sctcontact, name='mlform'),
     path('api/', include(router.urls)),
     path('status/', views.approvereject),
 ]
