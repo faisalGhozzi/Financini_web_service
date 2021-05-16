@@ -2,40 +2,31 @@
 {% block content %}
     {% load static %}
     {% load crispy_forms_tags %}
-    <div class = "mx-2 my-5">
-        <div  class = "container-fluid">
-            <div class = "row" style = "background-color:#94baf2">
-                <div class = "col-sm-4">
-                    <!--Add Financini img here-->
-                </div>
+    <div class="row">
+        <div class ="col"></div>
+            <div class ="col-6 my-5">
+                <center><h1>Loans Form</h1></center>
+                <br>
+                <form method='post'>
+                {% csrf_token %}
+                {{form|crispy}}
+                <br>
+                <button type='submit' class='btn btn-primary'>Submit</button>
+                </form>
+                <br>
             </div>
-            <div class="row">
-                <div class ="col"></div>
-                    <div class ="col-6 my-5">
-                        <h1>Loans Form</h1>
-                        <br>
-                        <form method='post'>
-                        {% csrf_token %}
-                        {{form|crispy}}
-                        <br>
-                        <button type='submit' class='btn btn-primary'>Submit</button>
-                        </form>
-                        <br>
-                    </div>
-                    <div class='col'>
-                        <div class='mt-5'>
-                            <h4>
-                            {% if messages %}
-                            <ul class="messages">
-                            {% for message in messages %}
-                            <div {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
-                            {{ message }} </div>
-                            {% endfor %}
-                            </ul>                     
-                            {% endif %}
-                            <h4>
-                        </div>
-                    </div>
+            <div class='col'>
+                <div class='mt-5'>
+                    <h4>
+                    {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                    <div {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
+                    {{ message }} </div>
+                    {% endfor %}
+                    </ul>                     
+                    {% endif %}
+                    <h4>
                 </div>
             </div>
         </div>
