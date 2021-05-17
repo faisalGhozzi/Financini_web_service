@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'MlAPI',
+    #My Pages
     'home',
+    'MlAPI',  
+    'DlAPI',
+    #3rd party
     'crispy_forms',
 ]
 

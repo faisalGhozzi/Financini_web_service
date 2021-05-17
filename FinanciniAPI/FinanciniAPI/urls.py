@@ -1,3 +1,4 @@
+# type: ignore
 """FinanciniAPI URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,11 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 from MlAPI import views
+from DlAPI import views
 from home import views
+
 
 urlpatterns = [
     path('', views.homepage_view, name="homepage"),
     path('admin/', admin.site.urls),
-    path('', include('MlAPI.urls'))
+    path('ml/', include('MlAPI.urls')),
+    path('dl/', include('DlAPI.urls')),
+    
 ]
