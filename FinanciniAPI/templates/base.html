@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous">
+    <link rel="icon" href="{% static "images/favicon.png" %}" type="image/x-icon" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"> 
+    <title>Financini</title>
+</head>
+<body>
+    <header class="main_header_area">   
+        <nav class="navbar navbar-expand-lg"> 
+            <a class="navbar-brand" href="{% url 'homepage' %}"><img src="{% static 'images/financini.png' %}" width=75 height=75 style="position : relative; top: -10px;"></a> 
+            <!-- Small Divice Menu-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar_supported"  aria-label="Toggle navigation"> 
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <!-- Left Nav bar -->
+            <div class="collapse navbar-collapse navbar_supported">
+                <ul class="navbar-nav"> 
+                    <li><a  id="home" href="{% url 'homepage' %}">Home</a></li>
+                    <li><a  id="ml-form" href="{% url 'mlform' %}">Loan approval</a></li>
+                    <li><a  id="dl-form" href="{% url 'dlform' %}">Loan approval (Beta)</a></li>  
+                    <li><a  id="contact" href="{% url 'homepage' %}">Contact Us</a></li>  
+                </ul>   
+            </div>
+        </nav>   
+    </header>
+    {% block content %}
+    {% endblock %}
+    <!-- jQuery v3.3.1 -->
+    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>    
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>  
+    <!-- Extra Plugin -->
+    <script src="{% static 'vendors/animate-css/wow.min.js'%}"></script> 
+    <script src="{% static 'vendors/parallaxmouse/parallax.min.js'%}"></script> 
+    <script src="{% static 'vendors/counterup/jquery.waypoints.min.js'%}"></script> 
+    <script src="{% static 'vendors/counterup/jquery.counterup.min.js'%}"></script>  
+    <script src="{% static 'vendors/parallaxmouse/jquery.jqlouds.min.js'%}"></script>  
+    <script src="{% static 'vendors/magnify-popup/jquery.magnific-popup.min.js'%}"></script> 
+    <script src="{% static 'vendors/isotope/imagesloaded.pkgd.min.js'%}"></script>
+    <script src="{% static 'vendors/isotope/isotope.pkgd.min.js'%}"></script>     
+    <script src="{% static 'vendors/bootstrap-selector/jquery.nice-select.min.js'%}"></script>  
+    <!-- Theme js / Custom js -->
+    <script src="{% static 'js/theme.js'%}"></script> 
+    <script src="{% static 'js/scroll.js'%}"></script> 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
