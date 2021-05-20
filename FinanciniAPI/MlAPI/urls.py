@@ -6,6 +6,6 @@ router = routers.DefaultRouter()
 router.register('MlAPI', views.ApprovalsView)
 urlpatterns = [
     path('ml-form/',views.sctcontact, name='mlform'),
-    path('api/', include(router.urls)),
-    path('status/', views.approvereject),
+    #path('api/', include(router.urls)),
+    #path('status/', views.approvereject),
 ]

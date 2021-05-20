@@ -25,19 +25,74 @@
             <div class="collapse navbar-collapse navbar_supported">
                 <ul class="navbar-nav"> 
                     <li><a  id="home" href="{% url 'homepage' %}">Home</a></li>
+                    <li><a  id="analytics"href="{% url 'analytics' %}">Analytics</a></li>
                     <li><a  id="ml-form" href="{% url 'mlform' %}">Loan approval</a></li>
                     <li><a  id="dl-form" href="{% url 'dlform' %}">Loan approval (Beta)</a></li>  
-                    <li><a  id="contact" href="{% url 'homepage' %}">Contact Us</a></li>  
+                    <li><a  id="contact" href="{% url 'contact' %}">Contact Us</a></li>  
                 </ul>   
             </div>
         </nav>   
     </header>
     {% block content %}
     {% endblock %}
+    <footer class="footer_area"> 
+        <img src="{% static 'images/footer-shap.png' %}" alt="" class="shap">
+        <div class="round_shap"></div>
+        <div class="footer_inner row">   
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 footer_logo wow fadeIn">
+                <a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> 
+               <br>
+                <br>
+                <ul class="footer_menu"> 
+                    <li><a href="{% url 'analytics' %}">Analytics</a></li>
+                    <li><a href="{% url 'mlform' %}">Loan approval</a></li>
+                    <li><a href="{% url 'dlform' %}">Loan approval (Beta)</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+                <ul class="footer_social"> 
+                    <li><a href="https://www.facebook.com/FinanciniTN"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+
+                </ul>
+            </div>
+            <div class="footer_widget fw_2 col-xl-2 col-lg-3 col-md-3 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                <h4>Information</h4>
+                <address>
+                        Cité Technologique des communications
+                        <br>Route de Raoued Km 3.5 2088 Ariana – Bloc B31
+                    <a href="mailto:Contact@feng.tn" class="email">Contact@feng.tn</a>
+                    <a href="#" class="phone">(+216) 21 678 687</a>
+                    <a href="#" class="phone">(+216) 29 319 830</a>
+                    
+                </address>
+            </div>   
+            <div class="footer_widget fw_3 col-xl-3 col-lg-3 col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.6s">
+                <h4>Stay In  Loop</h4>
+                <p>Subscribe to receive biweekly tips on creative automation and digital advertising!</p>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="What’s Your email">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-caret-right"></i></span>
+                        
+                    </div>
+                </div>
+            </div>   
+            <div class="footer_widget fw_4 col-xl-2 col-lg-3 col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.8s">
+                <h4>Location</h4>
+                <div class="mapouter"><div class="gmap_canvas"><iframe width="350" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=FABLAB%20CIFODE'COM&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.crocothemes.net"></a></div><style>.mapouter{text-align:right;height:200px;width:350px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:350px;}</style></div>
+            </div>   
+        </div> 
+        <p class="copy_right" >Made with &#x2764; by Feng</p>
+        <p class="copy_right">© 2021 All rights reserved, Feng</p>
+    </footer>
+    <!-- Preloader -->  
+    <div class="preloader"></div>
     <!-- jQuery v3.3.1 -->
     <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>    
     <script src="{% static 'js/popper.min.js'%}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>  
+    <script src="{% static 'js/contact.js' %}"></script>
     <!-- Extra Plugin -->
     <script src="{% static 'vendors/animate-css/wow.min.js'%}"></script> 
     <script src="{% static 'vendors/parallaxmouse/parallax.min.js'%}"></script> 
@@ -47,10 +102,9 @@
     <script src="{% static 'vendors/magnify-popup/jquery.magnific-popup.min.js'%}"></script> 
     <script src="{% static 'vendors/isotope/imagesloaded.pkgd.min.js'%}"></script>
     <script src="{% static 'vendors/isotope/isotope.pkgd.min.js'%}"></script>     
-    <script src="{% static 'vendors/bootstrap-selector/jquery.nice-select.min.js'%}"></script>  
+    <script src="{% static 'vendors/bootstrap-selector/jquery.nice-select.min.js'%}"></script>
     <!-- Theme js / Custom js -->
     <script src="{% static 'js/theme.js'%}"></script> 
-    <script src="{% static 'js/scroll.js'%}"></script> 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
         crossorigin="anonymous">

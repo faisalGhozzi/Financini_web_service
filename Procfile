@@ -1,0 +1,1 @@
+web: gunicorn financini_web_service.wsgi --log-file -

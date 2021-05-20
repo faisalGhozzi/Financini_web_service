@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Pages Banner Area -->   
+    <section class="pages_banner" id="parallax">   
+       <img src="{% static 'images/bannar-shap-1.png' %}" alt="" class="layer layer_1" data-depth="0.10">
+       <img src="{% static 'images/bannar-shap-2.png' %}" alt="" class="layer layer_2" data-depth="0.35">
+        <div class="container">
+            <img src="{% static 'images/pages-banner-4.png' %}" alt="" class="bannar_img wow fadeInRight">
+            <h2 class="wow fadeInUp">Contact Us </h2>
+            <br>
+           <img src="{% static 'images/p-banner-shap.png' %}" alt="" class="layer_3">
+        </div> 
+    </section>
+    <!-- End Pages Banner Area -->  
+    
+    <!-- Get In Touch With Us Area --> 
+    <section class="get_touch_area">
+        <div class="container">
+            <h2>Get In Touch With Us</h2>
+            <div class="row">
+                <div class="col-lg-2">
+                </div>
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=FABLAB%20CIFODE'COM&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <a href="https://www.pureblack.de/internetagentur/"></a>
+                    </div>
+                    <style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:800px!important;width:200!important;}</style>
+                </div>
+                <div class="col-lg-6"> 
+                    <form class="from_main" action="php/contact.php" method="post" id="phpcontactform" novalidate="novalidate"> 
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+                        </div>  
+                        <div class="row"> 
+                            <div class="form-group col-lg-6">
+                                <input type="email" class="form-control col-md-6" id="email" name="email" placeholder="Email"> 
+                            </div>
+                            <div class="form-group col-lg-6">   
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Phone"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="form-group m-0">
+                            <button class="theme_btn btn" id="js-contact-btn" type="submit">Send</button> 
+                            <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Messages Successfully"></div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+{% endblock %}

@@ -6,6 +6,6 @@ router = routers.DefaultRouter()
 router.register('DlAPI', views.ApprovalsDlView)
 urlpatterns = [
     path('dl-form/',views.sctcontact, name='dlform'),
-    path('api/', include(router.urls)),
-    path('status/', views.approvereject),
+    #path('api/', include(router.urls)),
+    #path('status/', views.approvereject),
 ]

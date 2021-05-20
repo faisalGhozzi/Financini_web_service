@@ -16,6 +16,7 @@ import joblib
 import json
 import numpy as np
 import pandas as pd
+import os
 
 
 # Create your views here.
@@ -27,17 +28,13 @@ class ApprovalsView(viewsets.ModelViewSet):
 def approvereject(unit):
     try:
         if float(unit['security_deposit']) == 0.0:
-            print('first cond')
-            return 'Rejected'
+            return [2] #Rejected
         if(float(unit['security_deposit']) >= float(unit['loan_ammount'])):
-            print('snd cond')
-            return 'Approved'
+            return [3] #Approved
         if float(unit['security_deposit']) / float(unit['loan_ammount']) < 0.5:
-            print('third cond')
-            return 'Rejected'
+            return [4] #Rejected
         if float(unit['security_deposit']) / float(unit['loan_ammount']) >= 0.5 and float(unit['security_deposit']) / float(unit['loan_ammount']) < 1:
-            print('frth cond')
-            mdl=joblib.load("../research/loan_model_lr.pkl")
+            mdl=joblib.load('../research/loan_model_lr.pkl')
             unit['ratio_de_solvabilite'] = float(unit['passifs_non_courant']) / float(unit['capitaux_propres'])
             unit['ratio_de_rentabilite'] = float(unit['resultat_net']) / float(unit['capitaux_propres'])
             unit['ratio_d_endettement'] = (float(unit['total_bilan']) - float(unit['capitaux_propres'])) / float(unit['total_bilan'])
@@ -45,8 +42,10 @@ def approvereject(unit):
             x_cols = ['ratio_de_solvabilite', 'ratio_de_rentabilite', 'ratio_d_endettement', 'marge_nette_sur_vente']
             y_pred=mdl.predict(unit[x_cols])
             newdf=pd.DataFrame(y_pred, columns=['Status'])
-            newdf=newdf.replace({1:'Approved', 0:'Rejected'})
-            return newdf.values[0][0]
+            #newdf=newdf.replace({1:'Approved', 0:'Rejected'})
+            if newdf.values[0][0] == 0 :
+                return [newdf.values[0][0], unit['ratio_de_solvabilite'], unit['ratio_de_rentabilite'], unit['ratio_d_endettement'], unit['marge_nette_sur_vente']]
+            return [newdf.values[0][0]]
     except ValueError as e:
         return (e.args[0])
 
@@ -68,7 +67,16 @@ def sctcontact(request):
             myDict = (request.POST).dict()
             df = pd.DataFrame(myDict, index=[0])
             answer = approvereject(df)
-            messages.success(request, 'Application Status: {}'.format(answer))
+            if answer[0] == 1:
+                messages.success(request, 'This loan has been approved')
+            if answer[0] == 2:
+                messages.success(request, "This loan has been rejected because there is no security deposit")
+            if answer[0] == 3:
+                messages.success(request, "This loan has been approved, your security deposit covers the loan ammount")
+            if answer[0] == 4:
+                messages.success(request, "This loan has been rejected because your security deposit can't cover the loan ammount")
+            if answer[0] == 0:
+                messages.success(request, "This loan has been rejected because :\nYour solvency ratio : {}\nYour profitability ratio : {}\nYour debt ratio : {}\nYour net margin on sales {}".format(str(int(answer[1].values))+'%', str(int(answer[2].values*100))+'%', str(int(answer[3].values*100))+'%', str(int(answer[4].values))+'%'))
     
     form=ApprovalForm()
 
